@@ -10,6 +10,7 @@ int main() {
         mark=1;
         double d,e,f;
         somadosvalores(d, e, f);
+        prinft("oi");
         printf("%lf",d);
     }
 
