@@ -2,22 +2,25 @@
 #include "lib.h"
 
 int main() {
-    int a,mark;
-    printf("Voce passou por uma consulta?\n");
-    escolha();
-    scanf("%i",&a);
-    if (a == 1) {
-        mark=1;
-        double d,e,f;
-        somadosvalores(d, e, f);
-        prinft("oi");
-        printf("%lf",d);
+    int question,controle,vias;
+    printf("Voce passou por uma consulta? \n");
+    controle=verificaresposta();
+    if(controle==1){
+        double resposta;
+        printf("voce foi medicado?\n");
+        controle=verificaresposta();
+        if(controle==1){
+            printf("quantas quantas vias de medicamento?\n");
+            scanf("%i",&vias);
+            resposta=somadosvaloressus(2,vias);
+            printf("%.2lf",resposta);
+        }
+        else{
+            resposta=somadosvaloressus(1,0);
+            printf("%.2lf",resposta);
+        }
     }
-
-    else if (a == 0) {
-        printf("então você não passou por uma unidade de saude privada ou publica\n");
-    } else {
-        printf("digite o valor correto\n");
+    else{
+        printf("você nao passou por uma consulta");
     }
-    return 0;
 }

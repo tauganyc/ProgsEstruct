@@ -6,6 +6,8 @@
 #define PROJETOPROGESTRUTURADA_FUNCOES_H
 float soma();
 void escolha();
-double somadosvalores();
+double somadosvaloressus();
+double verificapergunta();
+int verificaresposta();
 
 #endif //PROJETOPROGESTRUTURADA_FUNCOES_H
