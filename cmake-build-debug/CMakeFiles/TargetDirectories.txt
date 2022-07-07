@@ -1,0 +1,3 @@
+/home/taugany/CLionProjects/ProjetoProgEstruturada/cmake-build-debug/CMakeFiles/ProjetoProgEstruturada.dir
+/home/taugany/CLionProjects/ProjetoProgEstruturada/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/taugany/CLionProjects/ProjetoProgEstruturada/cmake-build-debug/CMakeFiles/rebuild_cache.dir
