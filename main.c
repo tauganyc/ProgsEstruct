@@ -11,9 +11,23 @@ int main() {
         controle=verificaresposta();
         if(controle==1){
             printf("quantas quantas vias de medicamento?\n");
+            printf("Deseja ver as principais vias de aplicacao de medicamentos?\n");
+            int pergunta=verificaresposta();
+            if(pergunta==1){
+                viasmedicamento();
+            }
             scanf("%i",&vias);
-            resposta=somadosvaloressus(2,vias);
-            printf("%.2lf",resposta);
+            controle=verificaresposta();
+            if(controle==1){
+                printf("voce ficou em um periodo de observacao\n");
+                resposta=somadosvaloressus(3,vias);
+                printf("%.2lf",resposta);
+
+            }
+            else{
+                resposta=somadosvaloressus(2,vias);
+                printf("%.2lf",resposta);
+            }
         }
         else{
             resposta=somadosvaloressus(1,0);
@@ -21,6 +35,6 @@ int main() {
         }
     }
     else{
-        printf("você nao passou por uma consulta");
+        printf("voce nao passou por uma consulta");
     }
 }

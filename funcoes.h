@@ -5,9 +5,10 @@
 #ifndef PROJETOPROGESTRUTURADA_FUNCOES_H
 #define PROJETOPROGESTRUTURADA_FUNCOES_H
 float soma();
+void viasmedicamento();
 void escolha();
-double somadosvaloressus();
-double verificapergunta();
+double somadosvaloressus(int a,int via);
+double verificapergunta(int mark,int vias);
 int verificaresposta();
 
 #endif //PROJETOPROGESTRUTURADA_FUNCOES_H

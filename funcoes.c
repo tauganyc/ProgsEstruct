@@ -7,8 +7,12 @@
 float soma(a,b){
     return a+b;
 }
+void viasmedicamento(){
+    printf("as principais vias de aplicacao sao:\n");
+    printf("Oral\nSublingual\nintravenosa\nintramuscular\nsubcutanea\nrespiratoria\ntopica\nOcular\nnazal\nauricular\n");
+}
 void escolha(){
-    printf("digite 1 para sim e 0 para não");
+    printf("digite 1 para sim e 0 para nao");
 }
 double somadosvaloressus(int a,int via){
     double totalsus;
