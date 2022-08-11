@@ -3,10 +3,15 @@
 //
 
 #include <stdio.h>
+#include <malloc.h>
 #include "funcoes.h"
-float soma(a,b){
-    return a+b;
+#define MAX_SIZE 512
+
+void limpaInput() {
+    int c;
+    while ( (c = getchar()) != '\n' && c != EOF ) { }
 }
+
 void viasmedicamento(){
     printf("as principais vias de aplicacao sao:\n");
     printf("Oral\nSublingual\nintravenosa\nintramuscular\nsubcutanea\nrespiratoria\ntopica\nOcular\nnazal\nauricular\n");
@@ -66,3 +71,36 @@ int verificaresposta(){
         }
     }
   }
+  int strlen(char *str){
+    int i=0;
+      while (str[i]!='\0'){
+          i++;
+      }
+      return i;
+}
+string stringalocada(){
+    // Pega o nome e coloca em um buffer
+    char buffer[MAX_SIZE];
+    fgets(buffer, MAX_SIZE, stdin);
+
+    // Descobre o tamanho da string (contando o \0)
+    int tam = 0;
+    for (int i = 0; i < MAX_SIZE; ++i) {
+        tam++;
+        // Chegou no final da string, sai do loop
+        if ((buffer[i] == '\r') || (buffer[i] == '\n') || (buffer[i] == '\0')) {
+            buffer[i] = '\0';
+            break;
+        }
+    }
+    fflush(stdin);
+
+    // Aloca espaço pro nome
+    char* nome = malloc(tam * sizeof(char));
+
+    // Copia do buffer, pro nome
+    for (int i = 0; i < tam; ++i) {
+        nome[i] = buffer[i];
+    }
+    return nome;
+}

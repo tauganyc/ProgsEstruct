@@ -1,4 +1,4 @@
-# Install script for directory: /home/taugany/CLionProjects/ProjetoProgEstruturada
+# Install script for directory: /mnt/HD/Repositorios/ProgsEstruct
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/taugany/CLionProjects/ProjetoProgEstruturada/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/mnt/HD/Repositorios/ProgsEstruct/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

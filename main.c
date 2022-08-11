@@ -1,15 +1,22 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "lib.h"
 
+
 int main() {
-    int question,controle,vias;
+    char* hospital,paciente;
+    printf("Digite o nome de onde consultou: ");
+    hospital=stringalocada();
+    printf("Digite o seu nome: ");
+    paciente=stringalocada();
+    int controle,vias;
     printf("Voce passou por uma consulta? \n");
     controle=verificaresposta();
-    if(controle==1){
+    if(controle == 1){
         double resposta;
         printf("voce foi medicado?\n");
         controle=verificaresposta();
-        if(controle==1){
+        if(controle == 1){
             printf("quantas quantas vias de medicamento?\n");
             printf("Deseja ver as principais vias de aplicacao de medicamentos?\n");
             int pergunta=verificaresposta();
@@ -18,7 +25,7 @@ int main() {
             }
             scanf("%i",&vias);
             controle=verificaresposta();
-            if(controle==1){
+            if(controle == 1){
                 printf("voce ficou em um periodo de observacao\n");
                 resposta=somadosvaloressus(3,vias);
                 printf("%.2lf",resposta);
