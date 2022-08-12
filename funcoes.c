@@ -20,7 +20,7 @@ int aplicado(void){
     }
     else{
         printf("digite um valor valido\n");
-        aplicado();
+        return aplicado();
     }
 }
 void viasmedicamento(){
@@ -107,7 +107,7 @@ int selectmenu(void) {
         if (!validamenu(op)) {
             printf("Opcao invalida\n\n");
             printmenu();
-            selectmenu();
+            return selectmenu();
         }
         return op;
 }
