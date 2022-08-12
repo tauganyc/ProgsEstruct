@@ -2,46 +2,29 @@
 #include <stdlib.h>
 #include "lib.h"
 
-
 int main() {
-    char* hospital,paciente;
+    double sus[4]={6.30,11.00,0.63,12.47};
+    char hospital,paciente;
+    int opcao,vias=0;
     printf("Digite o nome de onde consultou: ");
-    hospital=stringalocada();
+    hospital = strings();
     printf("Digite o seu nome: ");
-    paciente=stringalocada();
-    int controle,vias;
-    printf("Voce passou por uma consulta? \n");
-    controle=verificaresposta();
-    if(controle == 1){
-        double resposta;
-        printf("voce foi medicado?\n");
-        controle=verificaresposta();
-        if(controle == 1){
-            printf("quantas quantas vias de medicamento?\n");
-            printf("Deseja ver as principais vias de aplicacao de medicamentos?\n");
-            int pergunta=verificaresposta();
-            if(pergunta==1){
-                viasmedicamento();
-            }
-            scanf("%i",&vias);
-            controle=verificaresposta();
-            if(controle == 1){
-                printf("voce ficou em um periodo de observacao\n");
-                resposta=somadosvaloressus(3,vias);
-                printf("%.2lf",resposta);
+    paciente = strings();
 
-            }
-            else{
-                resposta=somadosvaloressus(2,vias);
-                printf("%.2lf",resposta);
-            }
+    printmenu();
+    opcao=selectmenu();
+    if(opcao>=3){
+        printf("quantas vias de medicamentos: \n");
+        printf("deseja ver quais vias de medicamento existem? \n");
+        if(verificaresposta()==1){
+            viasmedicamento();
         }
-        else{
-            resposta=somadosvaloressus(1,0);
-            printf("%.2lf",resposta);
-        }
+        vias=aplicado();
+        sus[2]=sus[2]*(double)vias;
     }
     else{
-        printf("voce nao passou por uma consulta");
+        sus[2]=sus[2]*(double)vias;
     }
+    printf("Você consultou no %s\n",hospital);
+    printf("caro %s, o hospital ira receber R$ %.2f",paciente,somadosvaloressus(opcao,vias,sus));
 }

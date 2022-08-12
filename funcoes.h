@@ -6,12 +6,14 @@
 #define PROJETOPROGESTRUTURADA_FUNCOES_H
 typedef char* string;
 void viasmedicamento();
-void escolha();
-double somadosvaloressus(int a,int via);
-double verificapergunta(int mark,int vias);
 int verificaresposta();
-string stringalocada();
+string strings(void);
 int strlen(char *str);
-void limpaInput();
+void limpaInput(void);
+void printmenu(void);
+int validamenu(int etapa);
+int selectmenu(void);
+int aplicado(void);
+double somadosvaloressus(int opcao,int vias,double* valoressus);
 
 #endif //PROJETOPROGESTRUTURADA_FUNCOES_H

@@ -11,64 +11,42 @@ void limpaInput() {
     int c;
     while ( (c = getchar()) != '\n' && c != EOF ) { }
 }
-
+int aplicado(void){
+    int vias;
+    printf("digite o numero de vias que foi aplicado em voce: ");
+    printf("digite de 0 ate 10\n");
+    scanf("%i",&vias);
+    if(vias>=0&&vias<=10){
+        return vias;
+    }
+    else{
+        printf("digite um valor valido\n");
+        aplicado();
+    }
+}
 void viasmedicamento(){
     printf("as principais vias de aplicacao sao:\n");
     printf("Oral\nSublingual\nintravenosa\nintramuscular\nsubcutanea\nrespiratoria\ntopica\nOcular\nnazal\nauricular\n");
 }
-void escolha(){
-    printf("digite 1 para sim e 0 para nao");
-}
-double somadosvaloressus(int a,int via){
-    double totalsus;
+double somadosvaloressus(int opcao,int vias,double* valoressus){
+    float totalsus;
     totalsus=0;
-    double sus[2]={11.30,0.63};
-        sus[1]=sus[1]*via;
-    for(int i=0;i<a;i++){
-        totalsus=totalsus+sus[i];
+    for(int i=0;i<opcao-1;i++){
+        totalsus=totalsus+valoressus[i];
     }
     return totalsus;
 
 }
-double somadosvaloresprivado(int a){
-    double totalprivado;
-    totalprivado=0;
-    double privado[2]={100.00,200.00};
-    for(int i=0;i<a;i++){
-        totalprivado=totalprivado+privado[i];
-    }
-    return totalprivado;
-}
-double verificapergunta(int mark,int vias){
-    int modificador = -1;
-    double totalSUS;
-    while (modificador != 1 || modificador != 0) {
-        escolha();
-        scanf("%i", &modificador);
-        if (modificador == 1) {
-            totalSUS = somadosvaloressus(mark, vias);
-            printf("%lf\n", totalSUS);
-            return totalSUS;
-        }
-        else if(modificador==0) {
-            return 0;
-        }
-        else { printf("digite o valor correto\n") ;}
-    }
-}
 int verificaresposta(){
-    int x=-1;
+    int x;
     printf("digite 1 para sim e 0 para não\n");
     scanf("%i",&x);
     if(x==1||x==0){
         return x;
     }
-    while(x!=1||x!=0){
+    else{
         printf("digite um valor valido\n");
-        scanf("%i",&x);
-        if(x==1||x==0){
-            return x;
-        }
+        return verificaresposta();
     }
   }
   int strlen(char *str){
@@ -78,7 +56,7 @@ int verificaresposta(){
       }
       return i;
 }
-string stringalocada(){
+string strings(){
     // Pega o nome e coloca em um buffer
     char buffer[MAX_SIZE];
     fgets(buffer, MAX_SIZE, stdin);
@@ -103,4 +81,34 @@ string stringalocada(){
         nome[i] = buffer[i];
     }
     return nome;
+}
+void printmenu(void){
+    printf("- - - - - - - - - - - - - - - - - - - - \n");
+    printf("informe ate qual etapa voce foi durante o seu tempo na instituicao:\n");
+    printf("0 - se foi embora ou nao foi a intituicao\n");
+    printf("1 - triagem da enfermagem\n");
+    printf("2 - consulta medica\n");
+    printf("3 - tomou medicacao\n");
+    printf("4 - ficou em observacao\n");
+    printf("- - - - - - - - - - - - - - - - - - - - \n");
+}
+int validamenu(int etapa){
+    int opcoes[5]={0,1,2,3,4};
+    for (int i = 0; i < 5; ++i) {
+        if(etapa==opcoes[i]){
+            return 1;
+        }
+    }
+    return 0;
+}
+int selectmenu(void) {
+    int op;
+        printf("Digite a opcao: ");
+        scanf(" %i", &op);
+        if (!validamenu(op)) {
+            printf("Opcao invalida\n\n");
+            printmenu();
+            selectmenu();
+        }
+        return op;
 }
