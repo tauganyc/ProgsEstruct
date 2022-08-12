@@ -6,7 +6,6 @@
 #include <malloc.h>
 #include "funcoes.h"
 #define MAX_SIZE 512
-
 void limpaInput() {
     int c;
     while ( (c = getchar()) != '\n' && c != EOF ) { }
