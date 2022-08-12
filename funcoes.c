@@ -28,10 +28,10 @@ void viasmedicamento(){
     printf("as principais vias de aplicacao sao:\n");
     printf("Oral\nSublingual\nintravenosa\nintramuscular\nsubcutanea\nrespiratoria\ntopica\nOcular\nnazal\nauricular\n");
 }
-double somadosvaloressus(int opcao,int vias,double* valoressus){
+float somadosvaloressus(int opcao,int vias,float* valoressus){
     float totalsus;
     totalsus=0;
-    for(int i=0;i<opcao-1;i++){
+    for(int i=0;i<opcao;i++){
         totalsus=totalsus+valoressus[i];
     }
     return totalsus;

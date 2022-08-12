@@ -3,7 +3,7 @@
 #include "lib.h"
 
 int main() {
-    double sus[4]={6.30,11.00,0.63,12.47};
+    float sus[4]={6.30,11.00,0.63,12.47};
     char* hospital;
     char* paciente;
     int opcao,vias=0;
@@ -21,11 +21,11 @@ int main() {
             viasmedicamento();
         }
         vias=aplicado();
-        sus[2]=sus[2]*(double)vias;
+        sus[2]=sus[2]*(float)vias;
     }
     else{
-        sus[2]=sus[2]*(double)vias;
+        sus[2]=sus[2]*(float)vias;
     }
     printf("Você consultou no %s\n",hospital);
-    printf("caro %s, o hospital ira receber R$ %.2lf",paciente,somadosvaloressus(opcao,vias,sus));
+    printf("caro %s, o hospital ira receber R$ %.2f",paciente,somadosvaloressus(opcao,vias,sus));
 }

@@ -14,6 +14,6 @@ void printmenu(void);
 int validamenu(int etapa);
 int selectmenu(void);
 int aplicado(void);
-double somadosvaloressus(int opcao,int vias,double* valoressus);
+float somadosvaloressus(int opcao,int vias,float* valoressus);
 
 #endif //PROJETOPROGESTRUTURADA_FUNCOES_H
