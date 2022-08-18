@@ -38,7 +38,6 @@ float somadosvaloressus(int opcao,int vias,float* valoressus){
 }
 int verificaresposta(){
     int x;
-    printf("digite 1 para sim e 0 para não\n");
     scanf("%i",&x);
     if(x==1||x==0){
         return x;
@@ -48,6 +47,7 @@ int verificaresposta(){
         return verificaresposta();
     }
   }
+
   int strlen(char *str){
     int i=0;
       while (str[i]!='\0'){
@@ -110,4 +110,28 @@ int selectmenu(void) {
             return selectmenu();
         }
         return op;
+}
+int valorinstituicao(float* valoressus, string hospital){
+    int valor[4];
+    float totalvalor;
+    totalvalor=0;
+    printf("Digite a quantidade de triagens: ");
+    scanf("%i",&valor[0]);
+    printf("Digite a quantidade de consultas medicas: ");
+    scanf("%i",&valor[1]);
+    printf("Digite a quantidade de administracoes de medicamento: ");
+    scanf("%i",&valor[2]);
+    printf("Digite a quantidade de consultas com observacao: ");
+    scanf("%i",&valor[3]);
+
+    for(int i=0;i<4;i++){
+        valoressus[i]=valoressus[i]*valor[i];
+        totalvalor=totalvalor+valoressus[i];
+    }
+    printf("Nome da instituicao: %s\n", hospital);
+    printf("Triagens = %.2lf\n",valoressus[0]);
+    printf("Consultas medicas = %.2lf\n",valoressus[1]);
+    printf("Administracoes de medicamento = %.2lf\n",valoressus[2]);
+    printf("Consultas com observacao = %.2lf\n",valoressus[3]);
+    printf("Total a receber = %.2lf",totalvalor);
 }
