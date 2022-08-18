@@ -8,7 +8,6 @@ typedef char* string;
 void viasmedicamento();
 int verificaresposta();
 string strings(void);
-int strlen(char *str);
 void limpaInput(void);
 void printmenu(void);
 int validamenu(int etapa);

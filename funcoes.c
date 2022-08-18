@@ -48,13 +48,6 @@ int verificaresposta(){
     }
   }
 
-  int strlen(char *str){
-    int i=0;
-      while (str[i]!='\0'){
-          i++;
-      }
-      return i;
-}
 string strings(){
     // Pega o nome e coloca em um buffer
     char buffer[MAX_SIZE];
