@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <malloc.h>
 #include "lib.h"
 
 int main() {
@@ -7,7 +8,6 @@ int main() {
     char* paciente;
     int opcao,vias=0;
     createDir("instituicao");
-    createDir("pacientes");
     do {
         printf("você é:\n");
         printf("0 - Instituicao hospitalar\n");

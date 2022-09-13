@@ -126,23 +126,24 @@ int valorinstituicao(float* valoressus, string hospital){
         totalvalor=totalvalor+valoressus[i];
     }
     printf("Nome da instituicao: %s\n", hospital);
-    printf("Triagens = %.2lf\n",valoressus[0]);
-    printf("Consultas medicas = %.2lf\n",valoressus[1]);
-    printf("Administracoes de medicamento = %.2lf\n",valoressus[2]);
-    printf("Consultas com observacao = %.2lf\n",valoressus[3]);
-    printf("Total a receber = %.2lf",totalvalor);
-    char* diretorio=strcat("\\instituicao\\",hospital);
-    char* triagens=strcat("triagens = ",valor[0]);
-    string consultasmedicas=strcat("consultas medicas = ",valor[1]);
-    string administracoesmedicamento=strcat("administracoes de medicamento = ",valor[2]);
-    string consultasobservacao=strcat("consultas com observacao = ",valor[3]);
-    string totalreceber=strcat("total a receber = ",totalvalor);
-    saveFile(diretorio,triagens);
-    saveFile(diretorio,consultasmedicas);
-    saveFile(diretorio,administracoesmedicamento);
-    saveFile(diretorio,consultasobservacao);
-    saveFile(diretorio,totalreceber);
-    return 0;
+    printf("Triagens = %.2f\n",valoressus[0]);
+    printf("Consultas medicas = %.2f\n",valoressus[1]);
+    printf("Administracoes de medicamento = %.2f\n",valoressus[2]);
+    printf("Consultas com observacao = %.2f\n",valoressus[3]);
+    printf("Total a receber = %.2f",totalvalor);
+    char pasta[MAX_SIZE]="instituicao/";
+    strcat(pasta,hospital);
+    FILE* arquivo=fopen(pasta,"w");
+    if (arquivo==NULL){
+        printf("erro ao abrir o arquivo");
+        return 0;
+    }
+    fprintf(arquivo,"Triagens = %.2f\n",valoressus[0]);
+    fprintf(arquivo,"Consultas medicas = %.2f\n",valoressus[1]);
+    fprintf(arquivo,"Administracoes de medicamento = %.2f\n",valoressus[2]);
+    fprintf(arquivo,"Consultas com observacao = %.2f\n",valoressus[3]);
+    fprintf(arquivo,"Total a receber = %.2f",totalvalor);
+    fclose(arquivo);
 
 }
 
@@ -154,12 +155,3 @@ void createDir(char *path) {
     }
 }
 
-int saveFile(char *path, char *data) {
-    FILE *file;
-    if ((file = fopen(path, "a")) == NULL) {
-        file = fopen(path, "w");
-    }
-    file=fopen(path,"a");
-    fprintf(file, "%s", data);
-    fclose(file);
-}

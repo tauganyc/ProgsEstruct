@@ -16,5 +16,4 @@ int aplicado(void);
 float somadosvaloressus(int opcao,int vias,float* valoressus);
 int valorinstituicao(float* valoressus, string hospital);
 void createDir(char *path);
-int saveFile(char *path, char *data);
 #endif //PROJETOPROGESTRUTURADA_FUNCOES_H
