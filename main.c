@@ -6,6 +6,8 @@ int main() {
     char* hospital;
     char* paciente;
     int opcao,vias=0;
+    createDir("instituicao");
+    createDir("pacientes");
     do {
         printf("você é:\n");
         printf("0 - Instituicao hospitalar\n");
@@ -39,8 +41,8 @@ int main() {
             }
             printf("Você consultou no %s\n", hospital);
             printf("caro %s, o hospital ira receber R$ %.2f", paciente, somadosvaloressus(opcao, vias, sus));
-            printf("\n voce quer fazer novamente?\n");
-            printf("digite 1 para sim e 0 para não\n");
         }
+        printf("\n voce quer fazer novamente?\n");
+        printf("digite 1 para sim e 0 para não\n");
     } while (verificaresposta() == 1);
 }

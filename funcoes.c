@@ -4,8 +4,12 @@
 
 #include <stdio.h>
 #include <malloc.h>
+#include <sys/stat.h>
+#include <stdlib.h>
+#include <string.h>
 #include "funcoes.h"
 #define MAX_SIZE 512
+
 void limpaInput() {
     int c;
     while ( (c = getchar()) != '\n' && c != EOF ) { }
@@ -127,4 +131,35 @@ int valorinstituicao(float* valoressus, string hospital){
     printf("Administracoes de medicamento = %.2lf\n",valoressus[2]);
     printf("Consultas com observacao = %.2lf\n",valoressus[3]);
     printf("Total a receber = %.2lf",totalvalor);
+    char* diretorio=strcat("\\instituicao\\",hospital);
+    char* triagens=strcat("triagens = ",valor[0]);
+    string consultasmedicas=strcat("consultas medicas = ",valor[1]);
+    string administracoesmedicamento=strcat("administracoes de medicamento = ",valor[2]);
+    string consultasobservacao=strcat("consultas com observacao = ",valor[3]);
+    string totalreceber=strcat("total a receber = ",totalvalor);
+    saveFile(diretorio,triagens);
+    saveFile(diretorio,consultasmedicas);
+    saveFile(diretorio,administracoesmedicamento);
+    saveFile(diretorio,consultasobservacao);
+    saveFile(diretorio,totalreceber);
+    return 0;
+
+}
+
+
+void createDir(char *path) {
+    struct stat st = {0};
+    if (stat(path, &st) == -1) {
+        mkdir(path, 0700);
+    }
+}
+
+int saveFile(char *path, char *data) {
+    FILE *file;
+    if ((file = fopen(path, "a")) == NULL) {
+        file = fopen(path, "w");
+    }
+    file=fopen(path,"a");
+    fprintf(file, "%s", data);
+    fclose(file);
 }
